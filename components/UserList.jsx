@@ -16,7 +16,8 @@ export default function UserList({ users, navigation }) {
     <View style={styles.list}>
       <Text style={styles.list_title}>Users</Text>
       <View style={{ marginTop: 15 }}>
-        {users.map((user) => {
+        {users.map((user) => { //Should pass the user object to the profile screen
+          console.log("user:", user);
           let id = user.id;
           return (
             <Pressable
@@ -26,17 +27,17 @@ export default function UserList({ users, navigation }) {
                 users.forEach((current_user) => {
                   if (current_user["id"] == id) {
                     // console.log("user:",current_user);
-                    setUser(current_user)
+                    setUser(current_user);
                   }
                 });
-                if(User.length != 0){
-                    // console.log("user:",User);
-                    navigation.navigate("Profile", { User });
+                if (User.length != 0) {
+                  // console.log("user:",User);
+                  //navigation.navigate("Profile", { User });
+                  navigation.navigate("Profile", {user});
                 }
                 // console.log(selectedUser);
-                
               }}
-            > 
+            >
               <Text style={styles.user_name}>{user.name}</Text>
             </Pressable>
           );

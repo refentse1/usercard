@@ -1,17 +1,18 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const ProfileScreen = ({ route }) => {
-  const { User } = route.params;
+  const { user } = route.params;
+  
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Profile</Text>
 
       <View style={styles.user_container}>
-        <Image style={styles.user_image} source={{uri:User.url}} />
-        <Text style={styles.user_name}>Name: {User.name}</Text>
-        <Text style={styles.user_name}>Age: {User.age}</Text>
-        <Text style={styles.user_name}>City: {User.city}</Text>
-        <Text style={styles.user_name}>Bio: {User.bio}</Text>
+        <Image style={styles.user_image} source={{ uri: user.url }} />
+        <Text style={styles.user_name}>Name: {user.name}</Text>
+        <Text style={styles.user_name}>Age: {user.age}</Text>
+        <Text style={styles.user_name}>City: {user.city}</Text>
+        <Text style={styles.user_name}>Bio: {user.bio}</Text>
       </View>
     </View>
   );
